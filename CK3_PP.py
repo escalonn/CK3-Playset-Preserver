@@ -53,7 +53,7 @@ def display_welcome_message():
 
 
 def should_use_ascii():
-    # cmd.exe has poor unicode support for nice tqdm progress bars
+    # conhost.exe has poor unicode support for nice tqdm progress bars
     if platform.system() != "Windows":
         return False
 
@@ -521,8 +521,11 @@ def main():
     mods = get_playset_mods(db_path, playset["id"])
 
     # Mods that are missing on disk (red error sign in launcher)
-    # have a different status from ready_to_play.
-    if not_found_mods := [m for m in mods if m["status"] != "ready_to_play"]:
+    # can be distinguished by the status column.
+    # Usually mods that are working correctly have status "ready_to_play",
+    # but in indeterminate circumstances, it's sometimes "initialized" instead.
+    good_statuses = {"ready_to_play", "initialized"}
+    if not_found_mods := [m for m in mods if m["status"] not in good_statuses]:
         print()
         print("ERROR: The launcher cannot find the following mods:")
         for mod in not_found_mods:
