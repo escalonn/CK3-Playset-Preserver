@@ -15,11 +15,13 @@ The problem we face with each official CK3 patch is asynchronous mod updates. Th
 
 ## How?
 
-A "snapshot" of a current playset of your choice is created, which is stored locally without further updates. This way, it will be possible to continue existing campaign or play older versions of CK3 until your favorite mods are updated. The load order of the playset is used to decide which files will appear in the snapshot, and which will not (because they should be overridden according to the playset's definition).
+A "snapshot" of a current playset of your choice is created, which is stored locally without further updates. This way, it will be possible to continue existing campaigns or play older versions of CK3 until your favorite mods are updated. The load order of the playset is used to decide which files will appear in the snapshot, and which will not (because they should be overridden according to the playset's definition).
+
+This has to be done *before* mod authors start pushing the updates that you want to exclude. To be safe, use the program before the game has updated at all.
 
 ## Installation
 
-Download [the latest release](https://github.com/Ant0nidas/CK3-Playset-Preserver/releases/latest), and unzip the downloaded archive into your mod folder, so that `CK3_PP.exe` is at a location like `mod/CK3-Playset-Preserver-vX.Y.Z/CK3_PP.exe`.
+Download [the latest release](https://github.com/Ant0nidas/CK3-Playset-Preserver/releases/latest), and extract the downloaded archive into your mod folder, so that `CK3_PP.exe` is at a location like `mod/CK3-Playset-Preserver-vX.Y.Z/CK3_PP.exe`.
 
 | OS       | Default location of mod folder                                       |
 | -------- | -------------------------------------------------------------------- |
@@ -27,13 +29,16 @@ Download [the latest release](https://github.com/Ant0nidas/CK3-Playset-Preserver
 | macOS    | `~/Documents/Paradox Interactive/Crusader Kings III/mod`             |
 | Linux    | `~/.local/share/Paradox Interactive/Crusader Kings III/mod`          |
 
-To update Crusader Kings 3 Playset Preserver, delete the unzipped folder, and then install the new version.
+To update Crusader Kings 3 Playset Preserver, delete the extracted folder, and then install the new version.
 
 Alternatively, clone the repository in your mod folder.
 
 ## Usage
 
-1. Ensure that your chosen playset is defined correctly in the CK3 launcher, and that you have enough disk space to accommodate the copying of all its mods.
+1. Ensure that:
+   - your chosen playset is defined correctly in the CK3 launcher.
+   - the game launches and plays as expected with that playset selected.
+   - you have enough disk space to accommodate the copying of all its mods.
 
 2. On Windows, run `CK3_PP.exe`.
 
